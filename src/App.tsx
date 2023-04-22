@@ -17,6 +17,7 @@ function App() {
       ) : null}
 
       <Button name="hello" onclick={() => setAppear(true)} />
+      <div>hello world</div>
     </>
   );
 }
