@@ -13,13 +13,6 @@ function List({ handleList, onclick }: Props) {
   return (
     <div>
       <div>
-        <form action="">
-          <input type="text" name="" id="" />
-
-          <button type="submit" onClick={() => console.log("submit")}>
-            submit
-          </button>
-        </form>
         <ul className="list-group">
           {list.map((list, index) => (
             <li
