@@ -11,13 +11,20 @@ function App() {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]); // dito papaasok lahat ng todo na naka array
 
-  const handleAdd = () => {
-    console.log("click");
+  const handleAdd = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (todo) {
+      setTodos([...todos, { id: Date.now(), todo, isDone: false }]);
+      setTodo("");
+    }
   };
 
   const handleList = (item: string) => {
     console.log(item);
   };
+
+  console.log(todos);
 
   return (
     <>
@@ -26,7 +33,10 @@ function App() {
       ) : null}
 
       <Button name="hello" onclick={() => setAppear(true)} />
-      <InputField todo={todo} setTodo={setTodo} />
+      <InputField todo={todo} setTodo={setTodo} handleApp={handleAdd} />
+      {todos.map((t) => (
+        <li>{t.todo} </li>
+      ))}
     </>
   );
 }

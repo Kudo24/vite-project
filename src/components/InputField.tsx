@@ -3,11 +3,12 @@ import React from "react";
 interface Props {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
+  handleApp: (e: React.FormEvent) => void;
 }
-const InputField = ({ todo, setTodo }: Props) => {
+const InputField = ({ todo, setTodo, handleApp }: Props) => {
   return (
     <div>
-      <form action="">
+      <form action="" onSubmit={handleApp}>
         <input
           type="text"
           name=""
@@ -15,9 +16,7 @@ const InputField = ({ todo, setTodo }: Props) => {
           value={todo}
           onChange={(e) => setTodo(e.target.value)}
         />
-        <button type="submit" onClick={(e) => e.preventDefault()}>
-          submit
-        </button>
+        <button type="submit">submit</button>
       </form>
       <p>{todo}</p>
     </div>
